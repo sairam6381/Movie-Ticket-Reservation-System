@@ -1,9 +1,9 @@
 # Movie-Ticket-Reservation-System
 This is my mini project . It is a movie ticket reservation system for my theater "CINEMA BUFFER" ,for this i python .
 This whole project is made up of python 
-front end - tkinter(python library)
-back end  - python
-database  - sqlite3(sql in python)
+,front end - tkinter(python library)
+,back end  - python
+,database  - sqlite3(sql in python)
 
 --CINEMA BUFFER --
 In this the new user has to sign up using their mail-id or mobile number . And using thier registered user name and password 
