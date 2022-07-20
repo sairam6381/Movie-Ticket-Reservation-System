@@ -3,18 +3,8 @@ from PIL import ImageTk, Image
 import datetime
 import time
 
-named_tuple = time.localtime() # get struct_time
-tim = time.strftime("%H:%M")
-#print(tim)
-x = datetime.datetime.now()
-#print(x.strftime("%x"))
-#print(x.strftime("%X"))
-
-
-
 def ticket(mo,se,da,ti):
-    #print(da,ti)
-        
+
     r_ticket=Tk()
     r_ticket.geometry("850x450")
     r_ticket.iconbitmap(default='image/dragon.ico')
@@ -29,8 +19,13 @@ def ticket(mo,se,da,ti):
     Label(r_ticket,text=da,font=(" Goudy Old Style",22),fg="#76787E",bg="#f5e8c5").place(x=385,y=310)
     Label(r_ticket,text=ti,font=(" Goudy Old Style",22),fg="#76787E",bg="#f5e8c5").place(x=535,y=310)
 
+    if mo=="AVATAR":
+        Label(r_ticket,text="1",font=(" Goudy Old Style",22),fg="#BF3424",bg="#f5e8c5",padx=10,pady=10).place(x=700,y=305)
+    elif mo=="INCEPTION":
+        Label(r_ticket,text="2",font=(" Goudy Old Style",22),fg="#BF3424",bg="#f5e8c5",padx=10,pady=10).place(x=700,y=305)
+    elif mo=="JOHN_WICK":
+        Label(r_ticket,text="3",font=(" Goudy Old Style",22),fg="#BF3424",bg="#f5e8c5",padx=10,pady=10).place(x=700,y=305)
+    elif mo=="MALEFICENT":
+        Label(r_ticket,text="4",font=(" Goudy Old Style",22),fg="#BF3424",bg="#f5e8c5",padx=10,pady=10).place(x=700,y=305)
 
     r_ticket.mainloop()
-
-#a=["A1","A2","sai"]
-#ticket("AVATHAR",a,x.strftime("%x"),tim)
