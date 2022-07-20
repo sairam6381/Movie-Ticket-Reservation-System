@@ -19,6 +19,6 @@ def number_verify(otp,num):
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         to="+91"+num, 
-        from_="+19379322457",
+        from_=*YOUR TWILIO NUMBER*,
         body="YOUR OTP IS : "+otp)
     print("OTP Sent to Number")
