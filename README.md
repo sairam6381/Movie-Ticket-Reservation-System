@@ -20,5 +20,6 @@ Before running the program please ensure the following:
   - install tkinter
   - install twilio
   - install smtp
+  - create account in twilio and a get number
   - enter your (mail id and password) & (twilio : account_sid , auth_token and number) in the otp_verify.py file
  
