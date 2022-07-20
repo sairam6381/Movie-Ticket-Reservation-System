@@ -7,42 +7,27 @@ from PIL import ImageTk, Image
 import signup
 
 
-
-#home_screen.home()
 def sin():
+
     def go():    
         un=user_n.get()
         pa=password.get()
         if(database.check(un)):
             if(database.check_p(un,pa)):
-                #print("yes")
                 root_s.destroy()
-                home_screen.home()
+                home_screen.home(un)
             else:
-                reponse=messagebox.showerror("ERROR","UserName/PassWord does not match")
-
-                
+                reponse=messagebox.showerror("ERROR","UserName/PassWord does not match")     
         else:
             reponse=messagebox.showerror("ERROR","UserName Does not EXIST")
-    #home_screen.home()
     def my_func(*args):
         root_s.destroy()
-        
         signup.sup()
-        #print("s")
-        
-    
+
     root_s =Tk()
     root_s.geometry("350x350")
     root_s.title("LOGIN")
     root_s.iconbitmap(default='image/dragon.ico')
-    
-    #img = ImageTk.PhotoImage(Image.open("image/fg.jpg"))  
-    #l=Label(root_s,image=img)
-    #l.place(x=0,y=0,relwidth=1,relheight=1)
-
-    #root_s.wm_attributes('-transparentcolor', '#ab23ff')
-    #root_s.resizable(False, False)
 
     #Label
     Label(root_s,text="").grid(row=0,column=0)
@@ -52,6 +37,7 @@ def sin():
     l2=Label(root_s,text="signup",fg="#1C54BB",cursor="hand2")
     l2.place(x=250,y=310)
     l2.bind("<Button-1>",my_func)
+
     #entry
     global user_n
     global password
@@ -62,7 +48,3 @@ def sin():
 
     #buttons
     bae=Button(root_s,text="SIGN IN",command=go,padx=15,pady=10).grid(row=5,column=0,columnspan=5,pady=30,padx=60)
-
-
-
-#sin()
