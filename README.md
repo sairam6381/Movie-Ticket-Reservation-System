@@ -10,6 +10,15 @@ In this the new user has to sign up using their mail-id or mobile number . And u
 they login into it . After logedin a list of movie is displayed on the screen the user has to select the movie that they want to watch and click the confirm button.
 Seating order of the theater is displayed on the screen . select the seat and make the payment .ticket will be provided to you using that ticket you can enter into the theater and enjoy the movie with your l♡ved ones.
 
+Here your can release the locked seats using admin account
+  - username : ADMIN
+  - password : admin
 
 NOTE:
- while running the program enter your (mail id and password) & (twilio : account_sid and auth_token) in the otp_verify.py file
+Before running the program please ensure the following:
+  - install pillow
+  - install tkinter
+  - install twilio
+  - install smtp
+  - enter your (mail id and password) & (twilio : account_sid , auth_token and number) in the otp_verify.py file
+ 
