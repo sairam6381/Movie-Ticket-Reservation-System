@@ -5,13 +5,11 @@ import random
 import database
 import signin
 import otp_verify
+import threading
+
 vnum_mail=0
 vnum_num=0
 
-#❌✅☒☑  ❎✅
-#account_id = "AC3fc04fc188d73b2aef88bee8a6362513"
-
-#function
 def rand():
     return random.randint(1111,9999)
     
@@ -19,17 +17,14 @@ def mail1():
     def otp_mail():
         global num
         num=rand()
-        #print(num)
         ma=m_idm.get()
         otp_verify.mail_verify(str(num),ma)
-        print(num)
-        
+    
     def login():
         root1.destroy()
         signin.sin()
         
     def vrf_mail():
-        #print(int(otpm.get()))
         global vnum_mail
         if(int(otpm.get())== num):
             vnum_mail=1
@@ -58,14 +53,8 @@ def mail1():
                     messagebox.showinfo("REGISTRATION", "Registered Sucessfully")
                     database.add(na,ma,pa)
                 else:
-                    reponse=messagebox.showerror("ERROR","PassWord does not match")
-        #database.add(na,ma,pa)
-        #print(na,ma,pa)
- 
+                    reponse=messagebox.showerror("ERROR","PassWord does not match")    
         
-            
-        
-    #root.destroy()
     root1=Tk()
     root1.geometry("570x370")
     root1.title("SIGNUP")
@@ -102,22 +91,18 @@ def mail1():
     Button(root1,text="Verify",padx=5,command=vrf_mail).grid(row=3,column=6,padx=10)
     reg=Button(root1,text="Register",command=reg_mail,padx=15,pady=5).grid(row=6,column=2,pady=20)
     login=Button(root1,text="Login",command=login,padx=15,pady=5).grid(row=6,column=1,pady=20)
+    root1.mainloop()
     
     
-    
-    
-
 def num1():
     def otp_num():
         global num
         num=rand()
         print(num)
         ma=m_idn.get()
-        #otp_verify.number_verify(str(num),str(ma))
-        
-        
+        otp_verify.number_verify(str(num),str(ma))
+
     def vrf_num():
-        #print(int(otpm.get()))
         global vnum_num
         if(int(otpn.get())== num):
             verify=Label(root1,text="✅",padx=5,fg="green").grid(row=3,column=7)
@@ -140,7 +125,7 @@ def num1():
             reponse=messagebox.showerror("ERROR","UserName already taken")
         else:
             if(vnum_num==0):
-                reponse=messagebox.showerror("ERROR","Verify your mail-ID")
+                reponse=messagebox.showerror("ERROR","Verify your Mobile Number")
             else:
                 if(pa==cpa):
                     u_namen.delete(0, END)
@@ -152,8 +137,6 @@ def num1():
                     database.add(na,ma,pa)
                 else:
                     reponse=messagebox.showerror("ERROR","PassWord does not match")
-
-    #root.destroy()
     root1=Tk()
     root1.geometry("600x370")
     root1.title("signup")
@@ -191,7 +174,6 @@ def num1():
     reg=Button(root1,text="Register",command=reg_num,padx=15,pady=5).grid(row=6,column=2,pady=20)
     clear=Button(root1,text="Login",command=login,padx=15,pady=5).grid(row=6,column=1,pady=20)
 
-
 def sup():
     global root
     root= Tk()
@@ -206,8 +188,6 @@ def sup():
             mail1()
         else:
             reponse=messagebox.showerror("ERROR","Accept Terms & Conditions")
-            #Label(root,text=reponse).grid(row=9,column=7)
-  
     def num():
         if(r.get()):
             root.destroy()
@@ -224,14 +204,6 @@ def sup():
     google=Button(root,text="Using Google",height=2,padx=25,command=mail).grid(row=1,column=0,padx=30,pady=10,columnspan=20)
     phone=Button(root,text="Using mobile number",height=2,padx=4,command=num).grid(row=2,column=0,padx=30,pady=20,columnspan=20)
 
-
     #checkbutton
     r=IntVar()
     Checkbutton(root,variable=r).grid(row=3,column=0,padx=61,pady=79,columnspan=5,rowspan=4)
-
-
-
-
-#sup()
-#mail1()
-#num1()
